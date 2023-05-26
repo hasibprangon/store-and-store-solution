@@ -13,7 +13,7 @@ loadProducts('https://fakestoreapi.com/products');
 
 // show all product in UI
 const showProducts = (products) => {
-   
+
    setInnerText('total_products', products.length);
 
    document.getElementById("all-products").innerHTML = "";
@@ -46,7 +46,6 @@ let count = 0;
 const addToCart = (id, price) => {
    count = count + 1;
    updatePrice('price', price); //value is not decleared or it's not a parameter
-
    updateTaxAndCharge();
    document.getElementById('total-Products').innerText = count;
 };
@@ -75,9 +74,9 @@ const getInputValue = (id) => {
 // main price update function
 const updatePrice = (id, value) => {
    const convertedOldPrice = getInputValue(id);
-   const convertPrice = parseInt(value);
+   const convertPrice = parseFloat(value);
    const total = convertedOldPrice + convertPrice;
-   document.getElementById(id).innerText = Math.round(total);
+   document.getElementById(id).innerText = total.toFixed(3);// showing result for three decimalpoint
 };
 
 // set innerText function
@@ -115,9 +114,9 @@ const updateTotal = () => {
 document.getElementById("search-btn").addEventListener("click", function () {
    const inputField = document.getElementById("input-value").value;
    const searchedProduct = arr[0].find((p) =>
-     p.category.startsWith(`${inputField}`)
+      p.category.startsWith(`${inputField}`)
    );
    showProducts(searchedProduct);
- });
+});
 
 
