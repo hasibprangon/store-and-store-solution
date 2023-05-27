@@ -111,11 +111,12 @@ const updateTotal = () => {
    document.getElementById('total').innerText = grandTotal.toFixed(3);// showing result for three decimalpoint
 };
 
-// search by category
+// search by title
 document.getElementById("search-btn").addEventListener("click", function () {
    const inputField = document.getElementById("input-value").value;
-   const searchedProduct = arr[0].find((p) =>
-      p.category.startsWith(`${inputField}`)
+   const searchedProduct = arr[0].filter((p) =>
+      p.title.includes(`${inputField}`)
+      // q.category.includes(`${inputField}`)
    );
    showProducts(searchedProduct);
 });
