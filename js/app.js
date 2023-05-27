@@ -48,6 +48,7 @@ const addToCart = (id, price) => {
    updatePrice('price', price); //value is not decleared or it's not a parameter
    updateTaxAndCharge();
    document.getElementById('total-Products').innerText = count;
+   updateTotal();//since total was not updated because of not calling this function , so we need to call this function here so that when we cart any item it can be updated the total value.. 
 };
 
 const showProductDetails = (product_id) => {
