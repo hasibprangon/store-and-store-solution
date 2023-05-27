@@ -18,7 +18,7 @@ const showProducts = (products) => {
 
    document.getElementById("all-products").innerHTML = "";
 
-   const allProducts = products.slice(0, 10).map((pd) => pd);
+   const allProducts = products.map((pd) => pd);//showing all product by deleting slice
    for (const product of allProducts) {
       const image = product.image;
       // console.log(product.image);
@@ -68,7 +68,7 @@ const showProductDetailsInModal = (product_details) => {
 
 const getInputValue = (id) => {
    const element = document.getElementById(id).innerText;
-   const converted = parseInt(element);
+   const converted = parseFloat(element);//for giving decimal point after total value
    return converted;
 };
 
@@ -108,7 +108,7 @@ const updateTotal = () => {
       getInputValue('price') +
       getInputValue('delivery-charge') +
       getInputValue('total-tax');
-   document.getElementById('total').innerText = grandTotal;
+   document.getElementById('total').innerText = grandTotal.toFixed(3);// showing result for three decimalpoint
 };
 
 // search by category
